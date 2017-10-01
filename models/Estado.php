@@ -5,10 +5,10 @@ class Estado// OK
 	private $id;
 	private $nombre;
 	
-	private function __construct($id,$nombre)
+	private function __construct($id, $nombre)
 	{
-	 	$this->id=$id;
-	 	$this->nombre=$nombre;
+	 	$this->id = $id;
+	 	$this->nombre = $nombre;
 	}
 
 	// Getters
@@ -62,6 +62,30 @@ class Estado// OK
 		}
 	}
 
+	public static function create($nombre) {
+		$sql = "insert into estados (nombre_estado) values ('" . $nombre . "')";
+		try {
+			if (!Bd::executeSql($sql)) {
+				throw new Exception("Error Processing Query");
+			}
+			return self::getLastInserted();
+		}	catch (Exception $e) {
+			return false;
+		}
+	}
+
+	private static function getLastInserted() {
+		$sql = "select * from estados where id_estado = (select max(id_estado) from estados)";
+		try {
+			if (!$estado = Bd::fetchSql($sql)) {
+				throw new Exception("Error Processing Query");
+			}
+			return self::instancia($estado[0]);
+		}	catch (Exception $e) {
+			return false;
+		}
+	}
+
 	private static function instancia($data){
 		return new Estado($data[0],$data[1]);
 	}
@@ -69,7 +93,7 @@ class Estado// OK
 	public static function getOneById($id){
 		$sql="select * from estados where id_estado=" . $id;
 		try{
-			if(!$estado=Bd::retornarDatos($sql)){
+			if(!$estado=Bd::fetchSql($sql)){
 				throw new Exception("Error Processing Request", 1);
 			}
 			return self::instancia($estado[0]);
@@ -81,7 +105,7 @@ class Estado// OK
 	private static function getOneByName($nombre){
 		$sql="select * from estados where nombre_estado='" . $nombre . "'";
 		try{
-			if(!$estado=Bd::retornarDatos($sql)){
+			if(!$estado=Bd::fetchSql($sql)){
 				throw new Exception("Error Processing Request", 1);
 			}
 			return self::instancia($estado[0]);

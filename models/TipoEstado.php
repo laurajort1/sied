@@ -82,7 +82,7 @@ class TipoEstado {// OK
 		return new TipoEstado($data[0], $data[1]);
 	}
 
-	public static function getLastInserted() {
+	private static function getLastInserted() {
 		$sql = "select * from tipos_estados where id_tipo_estado = (select max(id_tipo_estado) from tipos_estados)";
 		try {
 			if (!$tipo = Bd::fetchSql($sql)) {

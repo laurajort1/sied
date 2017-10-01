@@ -57,7 +57,7 @@ class TipoUsuario {// OK
 		}
 	}
 
-	public static function getLastInserted() {
+	private static function getLastInserted() {
 		$sql = "select * from tipos_usuarios where id_tipo_usuario = (select max(id_tipo_usuario) from tipos_usuarios)";
 		try {
 			if (!$tipo = Bd::fetchSql($sql)) {
