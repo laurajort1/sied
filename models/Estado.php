@@ -134,7 +134,9 @@ class Estado// OK
 				$estadosArray[] = self::instancia($estado);
 			}
 			return $estadosArray;
-		}	catch (Exception $e);
+		}	catch (Exception $e) {
+			return false;
+		}
 	}
 	
 }

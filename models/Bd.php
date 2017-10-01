@@ -43,7 +43,7 @@ class Bd {
 				throw new Exception("Error Connecting To Database");
 			}
 			// Consultar
-			$resultado = self::$conexion->query($sql)
+			$resultado = self::$conexion->query($sql);
 			self::disconnect();
 			if (!$resultado) {
 				throw new Exception("Error Processing Query");

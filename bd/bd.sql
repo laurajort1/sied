@@ -8,7 +8,7 @@ use proyectosied;
 create table tipos_usuarios (
 id_tipo_usuario int primary key auto_increment,
 nombre_tipo_usuario varchar(20) not null,
-constraint unique_tipos_usuarios unique (nombre_tipo_usuario);
+constraint unique_tipos_usuarios unique (nombre_tipo_usuario)
 );
 
 insert into tipos_usuarios (nombre_tipo_usuario) values ('cuentadante'),
@@ -116,7 +116,7 @@ insert into municipios (nombre_municipio, id_regional) values ('Piedecuesta', 26
 create table centros (
 id_centro int primary key auto_increment,
 nit_centro varchar(20) not null,
-nombre_centro varchar(45) not null,
+nombre_centro varchar(50) not null,
 id_municipio int not null,
 constraint unique_nit_centro unique (nit_centro),
 constraint unique_nombre_centro unique (nombre_centro),
@@ -139,21 +139,21 @@ apellidos_usuario varchar(45) not null,
 correo_usuario varchar(45) not null,
 telefono_usuario varchar(12) not null,
 fecha_nacimiento_usuario date not null,
-extension_usuario varchar(10) not null,
+extension_usuario varchar(10),
 contrasena_usuario varchar(70) not null,
 id_estado int not null,
-id_tipo int not null,
+id_tipo_usuario int not null,
 id_centro int not null,
 constraint unique_usuarios_cedula unique (cedula_usuario),
 constraint unique_usuarios_correo unique (correo_usuario),
 constraint fk_estados_usuarios foreign key (id_estado) references estados (id_estado),
-constraint fk_tipos_usuarios foreign key (id_tipo) references tipos_usuarios (id_tipo),
+constraint fk_tipos_usuarios foreign key (id_tipo_usuario) references tipos_usuarios (id_tipo_usuario),
 constraint fk_centros_usuarios foreign key (id_centro) references centros (id_centro)
 );
 
 insert into usuarios (cedula_usuario, nombres_usuario, apellidos_usuario, correo_usuario,
-telefono_usuario, contrasena_usuario, id_estado, id_tipo, id_centro) values
-(1098765432, 'Laura', 'Ortegon', 'ljortegon@misena.edu.co', '6431556',
+telefono_usuario, fecha_nacimiento_usuario, contrasena_usuario, id_estado, id_tipo_usuario, id_centro) values
+(1098765432, 'Laura', 'Ortegon', 'ljortegon@misena.edu.co', '6431556', '1992-07-01',
 'nnrTyAweLKj/vtNgUDBVUNHWV5DQT9jlbihl05ioi7g=', 1, 2, 1);
 
 -- Tabla de categorias de elementos // OK

@@ -36,7 +36,8 @@ class Municipio{// OK
 
 	// metodo
 	private static function instancia($data){
-		return new Municipio($data[0],$data[1], $data[2]);
+		$regional = Regional::getOneById($data[2]);
+		return new Municipio($data[0],$data[1], $regional);
 	}
 
 	private static function getLastInserted() {

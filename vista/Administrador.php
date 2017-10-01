@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $_SESSION["id"] = 1;
-require_once("../models/Usuario.php");
+require_once("../autoload.php");
 $usuario = Usuario::getOneById($_SESSION["id"]);
 
 ?>
@@ -47,7 +47,7 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 		<p class="navbar-text pull-right">
       <a href="">
         <img src="../public/img/conet.png"></a>&nbsp;Bienvenido(a) &nbsp;
-      <b><?php echo $usuario->getNombre() . " " . $usuario->getApellido(); ?></b>
+      <b><?php echo $usuario->getNombres() . " " . $usuario->getApellidos(); ?></b>
         <button>Cerrar Sesión</button>
         &nbsp;&nbsp;&nbsp;
     </p>

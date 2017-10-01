@@ -88,7 +88,7 @@ class TipoUsuario {// OK
 	public static function getOneById($id) {
 		$sql = "select * from tipos_usuarios where id_tipo_usuario = " . $id;
 		try {
-			if (!$tipo = Bd::retornarDatos($sql)) {
+			if (!$tipo = Bd::fetchSql($sql)) {
 				throw new Exception("Error Processing Query");
 			}
 			return self::instance($tipo[0]);

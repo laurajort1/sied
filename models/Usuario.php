@@ -136,7 +136,7 @@ class Usuario// OK
 	public static function create($cedula, $nombres, $apellidos, $correo, $telefono, $fechaNacimiento, $extension, $contrasena, TipoUsuario $tipo, Centro $centro) {
 		$estado=Estado::getActivo();
 		// sql
-		$sql="insert into usuarios (cedula_usuario,nombres_usuario, apellidos_usuario,correo_usuario, telefono_usuario, fecha_nacimiento_usuario, extension_usuario, contrasena_usuario, id_estado, id_tipo, id_centro) values (" . $cedula . ", '" . $nombres . "', '" . $apellidos . "','" . $correo . "', '" . $telefono . "', '" . $fechaNacimiento . "', '" . $extension . "', '" . $contrasena . "', " . $estado->getId() . ", " . $tipo->getId() . ", " . $centro->getId() . ")";
+		$sql="insert into usuarios (cedula_usuario,nombres_usuario, apellidos_usuario,correo_usuario, telefono_usuario, fecha_nacimiento_usuario, extension_usuario, contrasena_usuario, id_estado, id_tipo_usuario, id_centro) values (" . $cedula . ", '" . $nombres . "', '" . $apellidos . "','" . $correo . "', '" . $telefono . "', '" . $fechaNacimiento . "', '" . $extension . "', '" . $contrasena . "', " . $estado->getId() . ", " . $tipo->getId() . ", " . $centro->getId() . ")";
 		try{
 			if (!Bd::executeSql($sql)) {
 				throw new Exception("Error Processing Creation");		
@@ -165,7 +165,7 @@ class Usuario// OK
 	}
 
 	public function save(){
-		$sql="update usuarios set nombre_usuarios= '" . $this->nombres . "', apellidos_usuario = '" . $this->apellidos . "', telefono_usuario = '" . $this->telefono . "', extension_usuario = '" . $this->extension . "', contrasena_usuario = '" . $this->contrasena . "', id_estado = " . $this->estado->getId() . ", id_tipo = " . $this->tipo->getId() . ", id_centro = " . $this->centro->getId() . " where id_usuario = " . $this->id;
+		$sql="update usuarios set nombre_usuarios= '" . $this->nombres . "', apellidos_usuario = '" . $this->apellidos . "', telefono_usuario = '" . $this->telefono . "', extension_usuario = '" . $this->extension . "', contrasena_usuario = '" . $this->contrasena . "', id_estado = " . $this->estado->getId() . ", id_tipo_usuario = " . $this->tipo->getId() . ", id_centro = " . $this->centro->getId() . " where id_usuario = " . $this->id;
 		try{
 			if (!Bd::exeuteSql($sql)) {
 				throw new Exception("Error Processing Update");
