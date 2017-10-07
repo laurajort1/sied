@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once("autoload.php");
+$regionales = Regional::getAll();
+?>
 <DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,18 +22,18 @@
 <div class="contenedor">
 
 <!-- Banner de la pagina  -->
-<div class="banner">
+<div class="banner" id="inicio">
  <img src="public/img/banner-1.jpg" alt="">
 </div>
 
 <!-- linea separadora  -->
-<div class="banner">
+<div class="banner1">
  <img src="public//img/barracolores.PNG" alt="">
 </div>
 
 <!-- navegador de la pagina  -->
 <header>
-<nav class =  "navbar navbar-default">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button class="navbar-toggle" data-toggle="collapse" data-target= "#menu">
@@ -36,17 +41,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand  app-link">S.I.E.D</a>
     </div>
     <div class="collapse navbar-collapse" id="menu">
       <ul class="nav navbar-nav navbar-right">
 
-<li><a href="#">INICIO</a></li>
-<li><a href="#">QUIENES SOMOS</a></li> 
-<li><a href="#">NUESTRO EQUIPO</a></li>  
-<li><a href="#">CONTACTENOS</a></li>   
-<li><a href="#" data-toggle="modal" data-target="#Ingreso"> Ingresar</a></li>       
-<li > <a href="" class="glyphicon glyphicon-envelope nav-link" data-toggle="modal" data-target="#Mensaje"></a></li>  
+<li><a class="btn-inicio">INICIO</a></li>
+<li><a class="btn-datos">QUIENES SOMOS</a></li> 
+<li><a class="btn-equipo">NUESTRO EQUIPO</a></li>  
+<li><a class="btn-contacto">CONTACTENOS</a></li>   
+<li><a data-toggle="modal" data-target="#Ingreso">INGRESAR</a></li>       
+<li > <a class="glyphicon glyphicon-envelope nav-link" data-toggle="modal" data-target="#Mensaje"></a></li>  
 
       </ul>
     </div>
@@ -71,28 +75,20 @@
 
 
     <div class="modal-body" >
-     <form action="" role="form" method="post" class="login">
+     <form action="controllers/iniciarSesion.php" role="form" method="post" class="login">
 
-      <fieldset class="login-container">
-<form action="" method="post" name="usuario-login">
-  
-  <label class="lbl-img"><img src="public/img/user.png" alt="" class="imagen"></label>
-  
-  <label for=""class="login-label" > Correo:</label>
-  <input type="text" name="usuario" class="input-login " placeholder="correo@misena.edu.co" id="correo">
-  
-  <label for=""class="login-label " >Contraseña:</label>
-  <input type="password" name="contrasena" class="input-login" placeholder="**********">
-  
-  <button type="submin" class="btn-ingresar"> Ingresar</button>
-  
-</form>
+  <label class="lblimg">
+    <img src="public/img/usuarios.png" alt="" class="image">
+  </label>
+<input type="email" name="correo" placeholder="Correo Electronico" class="controles" required>
+<input type="password" name="contrasena" placeholder="Contraseña" class="controles" required>
+<input type="submit" value="Ingresar" class="controles">
 </fieldset>
      </form>
     </div>
 
     <div class="modal-footer">
-     <p>Olvido su <a href="#"> Contraseña?</a></p>
+     <p>Olvido su <a href="#" class="link"> Contraseña?</a></p>
     </div>
     
    </div>
@@ -102,7 +98,6 @@
 
 
 <!-- Modal de formulario de contacto  -->
-
 <div class="modal fade" id="Mensaje" role="dialog">
   <div class="modal-dialog">
    <div class="modal-content">
@@ -122,10 +117,11 @@
   <input type="text" name="correo" placeholder="Correo" required  class="controles-form">
   <select name="regional" id="regional" class="controles-form">
    <option value="" selected="">Selecione Regional</option>
-   <option value="">2</option>
-   <option value="">3</option>
-   <option value="">4</option>
-   <option value="">5</option>
+    <?php
+    foreach ($regionales as $regional) {
+      echo '<option value="' . $regional->getHash() . '">Regional ' . $regional->getNombre() . '</option>';
+    }
+    ?>
   </select>
   <textarea name="mensaje" placeholder="Escriba su Mensaje" required class="controles-form" ></textarea>
    <input type="submit" value="Enviar" id="boton">
@@ -149,12 +145,11 @@
 
 
 <!-- Slider -->
-<section class="slider"> 
+<section class="slider" id="slider"> 
  
 <div id="myCarousel" class="carousel slide " data-ride="carousel">
  <!-- Indicators -->
  <ol class="carousel-indicators">
-
   <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
   <li data-target="#myCarousel" data-slide-to="1" class="h"></li>
   <li data-target="#myCarousel" data-slide-to="2"></li>
@@ -171,8 +166,8 @@
   <div class="item active   container">
    <img src="public/Slider/img1.jpg" >
    <div class="carousel-caption">
-    <h3>img</h3>
-    <p>imagen</p>
+    <h3></h3>
+    <p></p>
    </div>
   </div>
 
@@ -180,8 +175,8 @@
   <div class="item   container">
    <img src="public/Slider/img2.jpg" >
    <div class="carousel-caption">
-   <h3>Imagen</h3>
-   <p>Wallpaper</p>
+   <h3></h3>
+   <p></p>
    </div>
   </div>
 
@@ -220,17 +215,6 @@
    <div class="carousel-caption">
    </div>
  </div>
-
-<!-- Left and right controls -->
-  <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a> -->
-
 </div>
 </div>
 </section>
@@ -239,7 +223,7 @@
 
 
 <!-- informacion -->
-<section class="info">
+<section class="info" id="info">
 <div class="container-fluid">
  <div class="row">
  
@@ -286,83 +270,108 @@
 
 <!-- Nuestro Equipo -->
 
-<section class="nuestro-equipo">
+<section class="nuestro-equipo" id="equipo">
+  
   <div class="container-fluid">
-    <h1 class="titulo-Equipo">Conoce al Equipo</h1>
+    <h1 class="titulo-Equipo">NUESTRO EQUIPO</h1>
     <div class="row">
 
-      <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="container-equipo">
+
+      <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3 Separar ">
+          <div class="fondo">
           <div class="img-equipo">
-            <img src="public//img/laura.png" alt="">
+            <img src="public//img/laura.jpg" alt="">
           </div>
+          <div class="Datos">
+
           <h1 class="nombre">Laura</h1>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit natus commodi recusandae aspernatur ipsum a facere voluptatum veniam deserunt voluptatibus officia quisquam aliquid, iusto perspiciati
+          </div>
+          <div class="redes">
+                    <a href="#" ><img src="public/img/facebook.png" alt="" width="30px" height="30px"></a>
+          <a href="#"><img src="public/img/google-plus.png" alt=""  width="30px" height="30px"></a>
+        </div>
         </div>
       </div>
 
-      <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="container-equipo">
+       <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3 Separar ">
+          <div class="fondo">
           <div class="img-equipo">
-            <img src="public/img/geovanni.png" alt="">
+            <img src="public//img/geovanni.jpg" alt="">
           </div>
+          <div class="Datos">
+
           <h1 class="nombre">Geovanni</h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus ducimus repellat illum autem cumque corporis velit enim laboriosam excepturi est commodi ab qui, consequatur omnis aperiam, vero eius facilis.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit natus commodi recusandae aspernatur ipsum a facere voluptatum veniam deserunt voluptatibus officia quisquam aliquid, iusto perspiciati
+          </div>
+          <div class="redes">
+                    <a href="#" ><img src="public/img/facebook.png" alt="" width="30px" height="30px"></a>
+          <a href="#"><img src="public/img/google-plus.png" alt=""  width="30px" height="30px"></a>
+        </div>
         </div>
       </div>
 
-      <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="container-equipo">
+       <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3 Separar ">
+          <div class="fondo">
           <div class="img-equipo">
-            <img src="public/img/ruth.png" alt="">
+            <img src="public//img/ruth.JPG" alt="">
           </div>
+          <div class="Datos">
+
           <h1 class="nombre">Ruth</h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quaerat, perspiciatis sequi minima, ratione natus iure quibusdam eaque est rem et veritatis corporis, ea dolor aut adipisci. Nisi, sit, rerum!
-        </div>
-      </div>
-
-       <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3">
-        <div class="container-equipo">
-          <div class="img-equipo">
-            <img src="public/img/gustavo.png" alt="">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit natus commodi recusandae aspernatur ipsum a facere voluptatum veniam deserunt voluptatibus officia quisquam aliquid, iusto perspiciati
           </div>
-          <h1 class="nombre">gustavo</h1>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quaerat, perspiciatis sequi minima, ratione natus iure quibusdam eaque est rem et veritatis corporis, ea dolor aut adipisci. Nisi, sit, rerum!
+          <div class="redes">
+                    <a href="#" ><img src="public/img/facebook.png" alt="" width="30px" height="30px"></a>
+          <a href="#"><img src="public/img/google-plus.png" alt=""  width="30px" height="30px"></a>
+        </div>
         </div>
       </div>
 
 
-     
+       <div class=" col-xs-12 col-sm-6 col-md-3 col-lg-3 Separar ">
+          <div class="fondo">
+          <div class="img-equipo">
+            <img src="public//img/gus.jpg" alt="">
+          </div>
+          <div class="Datos">
 
+          <h1 class="nombre">Gustavo</h1>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit fugit natus commodi recusandae aspernatur ipsum a facere voluptatum veniam deserunt voluptatibus officia quisquam aliquid, iusto perspiciati
+          </div>
+          <div class="redes">
+                    <a href="#" ><img src="public/img/facebook.png" alt="" width="30px" height="30px"></a>
+          <a href="#"><img src="public/img/google-plus.png" alt=""  width="30px" height="30px"></a>
+        </div>
+        </div>
+      </div>
+  <!--  -->
     </div>
   </div>
 </section>
 
+
 <!-- Pie de  pagina  -->
 
-<footer>
-  <div class=" container-fluid">
-    <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-       <br>Servicio Nacional de Aprendizaje SENA – Dirección General Calle 57 No. 8-69, Bogotá D.C - PBX (57 1) 5461500
+<footer class="contacto">
+
+<h1>Contactenos</h1>
+
+<div class="container-fliud">
+
+  <!-- Mapa -->
+<div id="map"></div>     
+</div>
+
+
+  <div class="container-fluid derechos" >
+  <br>Servicio Nacional de Aprendizaje SENA – Dirección General Calle 57 No. 8-69, Bogotá D.C - PBX (57 1) 5461500
   <br>Línea gratuita de atención al ciudadano Bogotá 5925555 – Resto del país 018000 910270
   <br>Horario de atención: lunes a viernes de 8:00 am a 5:30 pm
   <br>Correo electrónico para notificaciones judiciales: notificacionesjudiciales@sena.edu.co
-  <br>Todos los derechos reservados © 2017 ::. 
-      </div>
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-     
-      </div>
-    </div>
+  <br>Todos los derechos reservados © 2017 
   </div>
 </footer>
-
-
-
-
-
-
 
 
 
@@ -376,10 +385,21 @@
   <a href="https://twitter.com/SENAComunica"  class="icon icon-twitter"   target="_blank" title="Ir a Twitter"></a>
 
 </div>
+<!--<img src="public/img/subir.png" class="subir" width="40px" height="40px" title="Subir">-->
+<svg style="width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(#ff9933,#fc7323); box-shadow: 0px 5px 10px lightgray;" class="subir">
+  <line x1="10" y1="30" x2="25" y2="15" style="stroke: white; stroke-width: 2;" />
+  <line x1="25" y1="15" x2="40" y2="30" style="stroke: white; stroke-width: 2;" />
+</svg>
+
+
+
 
 </div>
 <script src="public/Js/jquery-3.2.1.min.js"></script>
 <script src="public/Js/bootstrap.min.js"></script>
-<script src="public/Js/main.js"></script>        
+<script src="public/Js/main.js"></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Kre3gQHTeXFi85xSIPvoQot6t-DVBiA&callback=initMap">
+    </script>
 </body>
  </html>

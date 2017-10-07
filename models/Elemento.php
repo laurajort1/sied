@@ -4,7 +4,6 @@
  {
  	private $id;
  	private $serial;
- 	private $codigo;
  	private $placa;
  	private $nombre;
  	private $descripcion;
@@ -16,11 +15,10 @@
  	private $categoria;
  	private $ambiente;
  	
- 	private function __construct($id, $serial, $codigo, $placa, $nombre, $descripcion, $marca, $modelo, $valor, $fecha, Estado $estado, Categoria $categoria, Ambiente $ambiente)
+ 	private function __construct($id, $serial, $placa, $nombre, $descripcion, $marca, $modelo, $valor, $fecha, Estado $estado, Categoria $categoria, Ambiente $ambiente)
  	{
  		$this->id = $id;
 		$this->serial = $serial;
-		$this->codigo = $codigo;
 		$this->placa = $placa;
 		$this->nombre = $nombre;
 		$this->descripcion = $descripcion;
@@ -44,10 +42,6 @@
 
 	public function getSerial() {
 		return $this->serial;
-	}
-
-	public function getCodigo() {
-		return $this->codigo;
 	}
 
 	public function getPlaca() {
@@ -116,9 +110,9 @@
 	}
 
 	private static function instance($data) {
-		$estado = Estado::getOneById($data[10]);
-		$categoria = Categoria::getOneById($data[11]);
-		return new Elemento($data[0], $data[1], $data[2], $data[3], $data[4], $data[5], $data[6], $data[7], $data[8], $data[9], $estado, $categoria);
+		$estado = Estado::getOneById($data[9]);
+		$categoria = Categoria::getOneById($data[10]);
+		return new Elemento($data[0], $data[1], $data[2], $data[3], $data[4], $data[5], $data[6], $data[7], $data[8], $estado, $categoria);
 	}
 
 	private static function getLastInserted() {
@@ -133,8 +127,8 @@
 		}
 	}
 
-	public static function create($serial, $codigo, $placa, $nombre, $descripcion, $marca, $modelo, $valor, $fecha, Estado $estado, Categoria $categoria, Ambiente $ambiente) {
-		$sql = "insert into elementos (serial_elemento, codigo_elemento, placa_elemento, nombre_elemento, descripcion_elemento, marca_elemento, modelo_elemento, valor_elemento, fecha_elemento, id_estado, id_categoria, id_ambiente) values ('" . $serial . "', '" . $codigo . "', '" . $placa . "', '" . $nombre . "', '" . $descripcion . "', '" . $marca . "', '" . $modelo . "', " . $valor . ", '" . $fecha . "', " . $estado->getId() . ", " . $categoria->getId() . ", " . $ambiente->getId() . ")";
+	public static function create($serial, $placa, $nombre, $descripcion, $marca, $modelo, $valor, $fecha, Estado $estado, Categoria $categoria, Ambiente $ambiente) {
+		$sql = "insert into elementos (serial_elemento, placa_elemento, nombre_elemento, descripcion_elemento, marca_elemento, modelo_elemento, valor_elemento, fecha_elemento, id_estado, id_categoria, id_ambiente) values ('" . $serial . "', '" . $placa . "', '" . $nombre . "', '" . $descripcion . "', '" . $marca . "', '" . $modelo . "', " . $valor . ", '" . $fecha . "', " . $estado->getId() . ", " . $categoria->getId() . ", " . $ambiente->getId() . ")";
 		try {
 			if (!Bd::executeSql($sql)) {
 				throw new Exception("Error Processing Creation");
@@ -162,7 +156,7 @@
 	}
 
 	public static function getAllByReporte(Reporte $reporte) {
-		$sql = "select e.id_elemento, e.serial_elemento, e.codigo_elemento, e.placa_elemento, e.nombre_elemento, e.descripcion_elemento, e.marca_elemento, e.modelo_elemento, e.valor_elemento, e.fecha_elemento, e.id_estado, e.id_categoria, e.id_ambiente from elementos as e, elementos_reportes as er where e.id_elemento = er.id_elemento and er.id_reporte = " . $reporte->getId();
+		$sql = "select e.id_elemento, e.serial_elemento, e.placa_elemento, e.nombre_elemento, e.descripcion_elemento, e.marca_elemento, e.modelo_elemento, e.valor_elemento, e.fecha_elemento, e.id_estado, e.id_categoria, e.id_ambiente from elementos as e, elementos_reportes as er where e.id_elemento = er.id_elemento and er.id_reporte = " . $reporte->getId();
 		try {
 			if (!$elementos = Bd::fetchSql($sql)) {
 				throw new Exception("Error Processing Query");

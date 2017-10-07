@@ -29,7 +29,7 @@ class Centro{// OK
 	}
 
 	public function getNombre(){
-		return utf8_encode($this->nombre);
+		return ($this->nombre);
 	}
 
 	public function getMunicipio(){

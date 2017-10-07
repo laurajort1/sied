@@ -117,6 +117,7 @@ create table centros (
 id_centro int primary key auto_increment,
 nit_centro varchar(20) not null,
 nombre_centro varchar(50) not null,
+telefono_centro int(15) not null,
 id_municipio int not null,
 constraint unique_nit_centro unique (nit_centro),
 constraint unique_nombre_centro unique (nombre_centro),
@@ -126,8 +127,8 @@ constraint fk_municipios_centros foreign key (id_municipio) references municipio
 insert into centros (nit_centro, nombre_centro, id_municipio) values
 ('1', 'Centro de atención al sector agropecurio' , 1),
 ('2', 'Centro de servicios empresariales y turisticos', 2),
-('3', 'Centro industrial de mantenimiento integral', 3),
-('4', 'Centro industrial del diseño y la manofactura', 4);
+('3', 'Centro Industrial de mantenimiento integral', 3),
+('4', 'Centro Industrial del diseño y la manofactura', 4);
 
 
 -- Tabla de usuarios // OK
@@ -181,7 +182,6 @@ constraint fk_centros_ambientes foreign key (id_centro) references centros (id_c
 create table elementos (
 id_elemento int primary key auto_increment,
 serial_elemento varchar(20) not null,
-codigo_elemento varchar(20) not null,
 placa_elemento varchar(30) not null,
 nombre_elemento varchar(45) not null,
 descripcion_elemento varchar(45) not null,
@@ -193,7 +193,6 @@ id_estado int not null,
 id_categoria int not null,
 id_ambiente int not null,
 constraint unique_serial_elementos unique (serial_elemento),
-constraint unique_codigo_elementos unique (codigo_elemento),
 constraint unique_placa_elementos unique (placa_elemento),
 constraint fk_estados_elementos foreign key (id_estado) references estados (id_estado),
 constraint fk_categorias_elementos foreign key (id_categoria) references categorias (id_categoria),

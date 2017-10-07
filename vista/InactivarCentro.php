@@ -33,12 +33,6 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 
 
 <!-- contenido central -->
-<!-- boton de Agregar Nuevo -->
-<div class="container">
-  <a href="crearCentro.php" class="btn btn-success">
-    <i class="glyphicon glyphicon-plus"></i>&nbsp;Nuevo&nbsp;
-  </a>
-</div>
 <br>
 <!-- tabla -->
 <div class="container">
@@ -47,19 +41,16 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
     <td><b>Nit</b></td>
     <td><b>Nombre</td>
     <td><b>Municipio</td>
-    <td colspan="2" align="center">Acciones</td>
+    <td colspan="1" align="center"><b>Acciones</b></td>
   </tr>
   <tr>
     <!-- contenido -->
-    <td><?php echo $usuario->getCentro()->getId(); ?></td>
+    <td><?php echo $usuario->getCentro()->getId();?></td>
     <td><?php echo $usuario->getCentro()->getNombre(); ?></td>
     <td>Piedecuesta</td>
     <td align="center">
-      <a href="editarCentros.php" type="button" class="btn btn-info btn-block">Editar</a></td>
-    <td align="center">
-      <a href="InactivarCentro.php" type="button" class="btn btn-danger btn-block">Inactivar</a></td>
-    </td>
-  </tr>
+      <a href="Centros.php" type="button" class="btn btn-success btn-block">Activar</a></td>
+     </tr>
   
   <!-- paginación -->
   <tr>

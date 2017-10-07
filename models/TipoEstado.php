@@ -138,6 +138,20 @@ class TipoEstado {// OK
 				$tiposArray[] = self::instance($tipo);
 			}
 			return $tiposArray;
+		}	catch (Exception $e) {
+			return false;
+		}
+	}
+
+	public static function getOneByName($nombre) {
+		$sql = "select * from tipos_estados where nombre_tipo_estado = '" . $nombre . "'";
+		try {
+			if (!$tipo = Bd::fetchSql($sql)) {
+				throw new Exception("Error Processing Query");
+			}
+			return self::instance($tipo[0]);
+		}	catch (Exception $e) {
+			return false;
 		}
 	}
 

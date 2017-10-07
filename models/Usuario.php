@@ -178,7 +178,7 @@ class Usuario// OK
 	}
 
 	public static function iniciarSesion($email, $contrasena) {
-		$sql = "select * from usuarios where correo_usuario = '" . $email . "' and contrasena_usuario = '" . $contrasena . "'";
+		$sql = "select * from usuarios where correo_usuario = '" . $email . "' and contrasena_usuario = '" . Crypto::encrypt($contrasena) . "'";
 		try {
 			if (!$usuario = Bd::fetchSql($sql)) {
 				throw new Exception("Error Processing Query");

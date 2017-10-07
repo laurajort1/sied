@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $_SESSION["id"] = 1;
-require_once("../models/Usuario.php");
+require_once("../autoload.php");
 $usuario = Usuario::getOneById($_SESSION["id"]);
 
 ?>
@@ -42,7 +42,7 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
     <p class="navbar-text pull-right">
       <a href="">
         <img src="../public/img/conet.png"></a>&nbsp;Bienvenido(a) &nbsp;
-      <b><?php echo $usuario->getNombre() . " " . $usuario->getApellido(); ?></b>
+      <b><?php echo $usuario->getNombres() . " " . $usuario->getApellidos(); ?></b>
         <button>Cerrar Sesión</button>
         &nbsp;&nbsp;&nbsp;
     </p>
@@ -118,7 +118,7 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
             &nbsp;&nbsp;
             <a href="../vista/Centros.php">
               <img src="../public/img/Centros.png" style="width:100%">
-              <p style="text-align: center;">Centros</p>
+              <p style="text-align: center; color: #000;">Centros</p>
             </a>
           </div>
         </div>
@@ -129,7 +129,7 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
             &nbsp;&nbsp;
             <a href="../vista/Ambientes.php">
               <img src="../public/img/Ambientes.png" style="width:100%">
-                <p style="text-align: center;">Ambientes</p>
+                <p style="text-align: center;color: #000;">Ambientes</p>
             </a>
           </div>
         </div>
@@ -140,7 +140,7 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
             &nbsp;&nbsp;
             <a href="../vista/Centros.php">
               <img src="../public/img/Elementos.png" style="width:100%">
-                <p style="text-align: center;">Elementos</p>
+                <p style="text-align: center; color:#000;">Elementos</p>
             </a>
           </div>
         </div>
