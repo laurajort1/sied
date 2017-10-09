@@ -6,15 +6,15 @@ $regionales = Regional::getAll();
 <DOCTYPE html>
 <html lang="es">
 <head>
-
-<title>S.I.E.D | Sistemas de Información de Elementos Devolutivos</title>
+  <title>S.I.E.D | Sistemas de Información de Elementos Devolutivos</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1"/>
-  <link rel="icon" href="public/img/ico.png">
+  <link rel="icon" href="../public/img/ico.png" type="image/x-icon" />
+  <!-- estilos -->
   <link rel="stylesheet" href="public/css/Redes.css">
   <link rel="stylesheet" href="public/css/bootstrap.css">
   <link rel="stylesheet" href="public/css/main.css">
- </head>
+</head>
 
 <body>
 

@@ -10,9 +10,9 @@ try {
 		throw new Exception("Error Processing Login");
 	}
 	$_SESSION["token"] = $usuario->getHash();
-	header("Location: ../vista/Administrador.php");
+	header("Location: ../vista/Administrador/Administrador.php");
 }	catch (Exception $e) {
-	header("Location: ../index.php");
+	header("Location: ../../index.php");
 }
 
 ?>

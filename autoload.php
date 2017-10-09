@@ -4,7 +4,7 @@
  */
 spl_autoload_register(function($className) {
 
-	$nestLvls = array("", "../");
+	$nestLvls = array("", "../", "../../");
 	$directories = array("", "models/", "services/");
 
 	foreach ($nestLvls as $lvl) {

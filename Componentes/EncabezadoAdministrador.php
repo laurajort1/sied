@@ -1,6 +1,6 @@
 <?php 
 session_start();
-require_once("../autoload.php");
+require_once("../../autoload.php");
 $usuario = Usuario::getOneByHash($_SESSION["token"]);
 ?>
 <!DOCTYPE html>
@@ -27,13 +27,13 @@ $usuario = Usuario::getOneByHash($_SESSION["token"]);
 <nav class="navbar navbar-default">
     <!-- bienvenido -->
 		<p class="navbar-text pull-right">
-        <img src="../public/img/conet.png">&nbsp;Bienvenido(a) &nbsp;
+        <img src="../../public/img/conet.png">&nbsp;Bienvenido(a) &nbsp;
       <b><?php echo $usuario->getNombres() . " " . $usuario->getApellidos(); ?></b>&nbsp;
-        <a id="btn-logout" class="btn btn-danger" href="#">Cerrar Sesión</a>
+        <a id="btn-logout" class="btn btn-default" href="#">Cerrar Sesión</a>
         &nbsp;&nbsp;&nbsp;
     </p>
-  		<img src="../public/img/small_header.png"><!--img header-->
-  		<img src="../public/img/barracolores.PNG"><!--Division de colores-->
+  		<img src="../../public/img/small_header.png"><!--img header-->
+  		<img src="../../public/img/barracolores.PNG"><!--Division de colores-->
 	</div>
   <!-- fin del header -->
   
@@ -55,20 +55,20 @@ $usuario = Usuario::getOneByHash($_SESSION["token"]);
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="active" ">
-          <a href="../vista/Administrador.php">Inicio 
+          <a href="../../vista/Administrador/Administrador.php">Inicio 
             <span class="sr-only">(current)</span></a></li>
-        <li><a href="Perfil.php">Perfil</a></li>
-        <li><a href="../vista/Inventarios.php">Inventarios</a></li>
+        <li><a href="../Administrador/Perfil.php">Perfil</a></li>
+        <li><a href="../Inventarios/Inventarios.php">Inventarios</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registros<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="../vista/Centros.php">Centros</a></li>
+              <li><a href="../../vista/Centros/crearCentro.php">Centros</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="../vista/Ambientes.php">Ambientes</a></li>              
+              <li><a href="../../vista/Ambientes/crearAmbientes.php">Ambientes</a></li>              
               <li role="separator" class="divider"></li>
-              <li><a href="../vista/Elementos.php">Elementos</a></li>
+              <li><a href="../../vista/Elementos/crearElementos.php">Elementos</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="../vista/Usuarios.php">Usuarios</a></li>
+              <li><a href="../../vista/Usuarios/crearUsuario.php">Usuarios</a></li>
             </ul>
         </li>
       </ul>
@@ -94,7 +94,7 @@ $usuario = Usuario::getOneByHash($_SESSION["token"]);
   </div>
 </nav>
 <!-- fin del contenido superior -->
-<script type="text/javascript">
+<script>
 
   document.querySelector('#btn-logout').addEventListener('click', (e) => {
     e.preventDefault();

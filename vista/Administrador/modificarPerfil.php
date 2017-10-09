@@ -1,7 +1,7 @@
 <?php 
 session_start();
 $_SESSION["id"] = 1;
-require_once("../autoload.php");
+require_once("../../autoload.php");
 $tipoEstado = TipoEstado::getOneByName("usuario");
 $estados = $tipoEstado->getEstados();
 $usuario = Usuario::getOneById($_SESSION["id"]);
@@ -14,7 +14,7 @@ $centros = Centro::getAll();
  <meta charset="UTF-8">
  <title> S.I.E.D | Administrador </title>
  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
- <link rel="icon" href="../public/img/ico.png" type="image/x-icon" />
+ <link rel="icon" href="../../public/img/ico.png" type="image/x-icon" />
  <!-- estilos -->
  <link rel="stylesheet" type="text/css" href="../public/css/bootstrap.min.css">
  <script src="../public/js/jquery-3.2.1.min.js"></script>
@@ -39,7 +39,7 @@ $centros = Centro::getAll();
       height: 100px;
       background-repeat: no-repeat;
       background-size: contain;
-      background-image: url('../public/img/user.png');
+      background-image: url('../../public/img/user.png');
       background-position: center;
       border-radius: 50%;
       overflow: hidden;
@@ -77,7 +77,7 @@ $centros = Centro::getAll();
   </style>
 
 <!-- header -->
-<?php echo include_once '../Componentes/EncabezadoAdministrador.php' ?>
+<?php echo include_once '../../Componentes/EncabezadoAdministrador.php' ?>
 <!-- fin del contenido superior -->
 
 <!-- contenido central -->
@@ -208,15 +208,15 @@ $centros = Centro::getAll();
 
 <!-- botones finales -->
   <p class="container" align="center">
-    <a type="button" class="btn btn-success btn-lg active" href="../vista/Perfil.php">Guardar</a>    
-    <a  type="button" class="btn btn-danger btn-lg" href="../vista/Administrador.php">Cancelar</a>
+    <a type="button" class="btn btn-success btn-lg active" href="Perfil.php">Guardar</a>    
+    <a  type="button" class="btn btn-danger btn-lg" href="Perfil.php">Cancelar</a>
    </p> <!-- Fin del contenido final-->
 </div>
 <!-- fin del contenido central -->
 
   
   <footer>
-    <?php echo include_once '../Componentes/FooterAdministrador.php' ?>
+    <?php echo include_once '../../Componentes/FooterAdministrador.php' ?>
   </footer>
 
   <!-- Acciones para el funcionamiento de la imagen -->

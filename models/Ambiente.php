@@ -75,7 +75,7 @@ class Ambiente// OK
 		$cuentadante = Usuario::getOneById($data[2]);
 		$estado = Estado::getOneById($data[3]);
 		$centro = Centro::getOneById($data[4]);
-		return new Ambientes($data[0], $data[1], $data[2], $cuentadante, $estado, $centro);
+		return new Ambiente($data[0], $data[1], $cuentadante, $estado, $centro);
 	}
 
 	private static function getLastInserted() {
