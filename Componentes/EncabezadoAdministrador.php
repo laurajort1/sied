@@ -58,19 +58,19 @@ $usuario = Usuario::getOneByHash($_SESSION["token"]);
           <a href="../../vista/Administrador/Administrador.php">Inicio 
             <span class="sr-only">(current)</span></a></li>
         <li><a href="../Administrador/Perfil.php">Perfil</a></li>
-        <li><a href="../Inventarios/Inventarios.php">Inventarios</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registros<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="../../vista/Centros/crearCentro.php">Centros</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="../../vista/Ambientes/crearAmbientes.php">Ambientes</a></li>              
+              <li><a href="../../vista/Ambientes/crearAmbientes.php">Ambientes</a></li>   
               <li role="separator" class="divider"></li>
               <li><a href="../../vista/Elementos/crearElementos.php">Elementos</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="../../vista/Usuarios/crearUsuario.php">Usuarios</a></li>
             </ul>
         </li>
+        <li><a href="../Inventarios/Inventarios.php">Inventarios</a></li>        
       </ul>
       <!-- buscador -->
       <form class="navbar-form navbar-right">

@@ -69,7 +69,7 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
          <div class="col-6 col-sm-3">
           <div class="thumbnail">
             &nbsp;&nbsp;
-            <a href="../../vista/Centros/Centros.php">
+            <a href="../../vista/Elementos/Elementos.php">
               <img src="../../public/img/Elementos.png" style="width:100%">
                 <p style="text-align: center; color:#000;">Elementos</p>
             </a>

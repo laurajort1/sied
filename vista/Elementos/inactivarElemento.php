@@ -29,117 +29,76 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 <!-- header -->
 <?php echo include_once '../../Componentes/EncabezadoAdministrador.php' ?>
 <!-- fin del header -->
-
-
-
 <!-- contenido central -->
 <br>
 <!-- tabla -->
-<div class="container">
-  <table class="table table-bordered table-responsive"; align="center"; style="width: 100%; border-radius: 2px #000;text-align: center; border: 0px;">
+<div>
+  <table class="table table-bordered table-responsive"; align="center"; style="width: 100%; overflow: scroll;">
 
-    <!-- contenido superior -->
-  <!-- contenido superior -->
-  <tr>
-     <!-- Serial -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Serial</b></td>   
-    <td  style=" width: 10%; color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="serial" value="123456789" disabled></td>
-  
-    <!-- Placa -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Placa</td>       
-    <td style="width: 10%; color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="serial" value="A2D3D3" disabled></td>
-
-    <!-- Nombre -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Nombre</td>
-      <td style="width: 50%; color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="nombre" value="Silla"; disabled></td>
-   </tr>
-  <tr>
 <tr>
+    <!-- id -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Id</b></td> 
+     <!-- Serial -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Serial</b></td> 
+    <!-- Placa -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Placa</td>
+    <!-- Nombre  -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Nombre</td>
     <!-- Descripción -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; "><b>Descripción</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="descripcion" value="blanca de ruedas" disabled;></td>
-    
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Descripción</b></td>
     <!-- Marca -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; "><b>Marca</b></td>
-    <td  style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="marca" value="rimax"; disabled ></td>
-
-   <!-- Modelo -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Modelo</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="modelo" value="AG23"; disabled></td>
-  </tr>
-   <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Marca</b></td>
+    <!-- Modelo -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Modelo</b></td>
     <!-- Valor -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Valor</b></td>
-    <td  style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="modelo" value="25.000"; disabled></td>
-    
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Valor</b></td>
     <!-- FechaInicial -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>FechaInicial</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="date" name="modelo"; disabled></td>
-
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>FechaInicial</b></td>
     <!-- Estado -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Estado</b></td>
-    <td align="center" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <select class="form-control" style="text-transform: capitalize;">
-          <?php
-          foreach ($municipio as $municipio) {
-            if ($centros->getNombre()->getId()==$estado->getId()) {
-              echo '<option selected value="' . $estado->getId() . '">' . $estado->getNombre() . '</option>';
-            } else {
-              echo '<option value="' . $estado->getId(). '">' . $estado->getNombre(). '</option>';
-            }
-          }
-         ?>
-        </select>
-      </td>
-
-    </tr>
-   <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Estado</b></td>
     <!-- Categoria -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Categoria</td>
-       <td align="center" style="color: #000; font-family: Calibri; font-weight: bold;">
-      <select class="form-control" style="text-transform: capitalize;">
-        <?php
-        foreach ($municipio as $municipio) {
-          if ($centros->getNombre()->getId()==$estado->getId()) {
-            echo '<option selected value="' . $estado->getId() . '">' . $estado->getNombre() . '</option>';
-          } else {
-            echo '<option value="' . $estado->getId(). '">' . $estado->getNombre(). '</option>';
-          }
-         }
-        ?>
-      </select>
-    </td>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Categoria</td>
     <!-- Ambiente -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Ambiente</b></td>
-    <td align="center" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <select class="form-control" style="text-transform: capitalize;">
-          <?php
-          foreach ($municipio as $municipio) {
-            if ($centros->getNombre()->getId()==$estado->getId()) {
-              echo '<option selected value="' . $estado->getId() . '">' . $estado->getNombre() . '</option>';
-            } else {
-              echo '<option value="' . $estado->getId(). '">' . $estado->getNombre(). '</option>';
-            }
-          }
-         ?>
-        </select>
-      </td>
-    </td>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Ambiente</b></td>
+    <!-- Acciones -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;" colspan="2"><b>Acciones</b></td>
 
-    <!-- botones -->
+  <tr>  
+    <!-- id -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><input class="form-control" type="text" name="serial" value="1"; disabled></td> 
+    <!-- serial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input class="form-control" type="text" name="serial" value="123456789"; disabled ></td>
+    <!-- Placa -->         
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="placa" value="A2D3D3"; disabled ></td>
+    <!-- Nombre -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input class="form-control" type="text" name="nombre" value="Silla"; disabled ></td>
+    <!-- Descripción -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input class="form-control" type="text" name="nombre" value="Blanca de ruedas"; disabled ></td>    
+    <!-- Marca -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input class="form-control" type="text" name="nombre" value="Rimax"; disabled ></td>
+    <!-- Modelo -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input class="form-control" type="text" name="nombre" value="AG23"; disabled ></td> 
+    <!-- Valor -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="25.000"; disabled ></td>    
+    <!-- FechaInicial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="01/07/2012"; disabled ></td>
+    <!-- Estado -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="Activo"; disabled ></td>    
+    <!-- Categoria -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="Otros"; disabled ></td>
+    <!-- Ambiente -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="Ambiente 0"; disabled ></td>
+     </td>
+     <!-- botones -->
     <td align="center">
       <a href="../Elementos/Elementos.php" type="button" class="btn btn-info btn-block">Activar</a></td>
     <td align="center">
       <a href="../Elementos/Elementos.php" type="button" class="btn btn-danger btn-block">Cancelar</a></td>
     </td>
+  </tr>
+</tr> 
+
+    
   </tr>
   
   <!-- paginación -->

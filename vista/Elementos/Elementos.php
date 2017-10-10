@@ -30,70 +30,66 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 <?php echo include_once '../../Componentes/EncabezadoAdministrador.php' ?>
 <!-- fin del header -->
 
-
-
-<!-- contenido central -->
-<!-- boton de Agregar Nuevo -->
-
-<br>
-<!-- tabla -->
-<div class="container">
-  <table class="table table-bordered table-responsive"; align="center"; style="width: 100%; border-radius: :2px  #000;text-align: center; border: 0px;">
-    <!-- contenido superior -->
 <!-- contenido central -->
 <br>
 <!-- tabla -->
-<div class="container">
-  <table class="table table-bordered table-responsive"; align="center"; style="width: 200%; overflow: scroll;">
-
+<div>
+  <table class="table table-bordered table-responsive"; align="center"; style="width: 98%; text-align: center;">
     <!-- contenido superior -->
   <tr>
+    <!-- id -->
+    <td bdcolor="#eaeaea" align="center" style="font-family: calibri"><b>Id</b></td>
      <!-- Serial -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Serial</b></td>   
-    <td  style=" width: 10%; color: #000; font-family: Calibri; font-weight: bold;">123456789</td>
-  
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Serial</b></td> 
     <!-- Placa -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Placa</td>       
-    <td style="width: 10%; color: #000; font-family: Calibri; font-weight: bold;">A2D3D3</td>
-
-    <!-- Nombre -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;color: #000;"><b>Nombre</td>
-      <td style="width: 50%;  font-family: Calibri; font-weight: bold;">Silla</td>
-   </tr>
-  <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Placa</td>
+    <!-- Nombre  -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Nombre</td>
     <!-- Descripción -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Descripción</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;"> Blanca de ruedas</td>
-    
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Descripción</b></td>
     <!-- Marca -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; "><b>Marca</b></td>
-    <td  style="color: #000; font-family: Calibri; font-weight: bold;">Rimax</td>
-
-   <!-- Modelo -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Modelo</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;">AG23</td>
-  </tr>
-   <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Marca</b></td>
+    <!-- Modelo -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Modelo</b></td>
     <!-- Valor -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Valor</b></td>
-    <td  style="color: #000; font-family: Calibri; font-weight: bold;">25.000</td>
-    
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Valor</b></td>
     <!-- FechaInicial -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>FechaInicial</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;">01/07/2012</td>
-
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>FechaInicial</b></td>
     <!-- Estado -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Estado</b></td>
-    <td align="left" style="color: #000; font-family: Calibri; font-weight: bold;">Activo</td>
-    </tr>
-   <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Estado</b></td>
     <!-- Categoria -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Categoria</td>
-       <td align="left" style="color: #000; font-family: Calibri; font-weight: bold;">Otros
-    </td>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Categoria</td>
     <!-- Ambiente -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Ambiente</b></td>
-    <td align="left" style="color: #000; font-family: Calibri; font-weight: bold;">Ambiente 0
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Ambiente</b></td>
+    <!-- Acciones -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;" colspan="2"><b>Acciones</b></td>
+
+  <tr>  
+    <!-- id -->
+    <td style=" color: #000; font-family: Calibri; font-weight: bold;">1</td>
+    <!-- serial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">123456789</td>
+    <!-- Placa -->         
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">A2D3D3</td>
+    <!-- Nombre -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">Silla</td>
+    <!-- Descripción -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"> Blanca de ruedas</td>    
+    <!-- Marca -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">Rimax</td>
+    <!-- Modelo -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">AG23</td> 
+    <!-- Valor -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">25.000</td>    
+    <!-- FechaInicial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">01/07/2012</td>
+    <!-- Estado -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">Activo</td>    
+    <!-- Categoria -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">Otros</td>
+    <!-- Ambiente -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;">Ambiente 0</td>
+
     </td>
      <td align="center">
       <a href="../Elementos/editarElemento.php" type="button" class="btn btn-info btn-block">Editar</a></td>
@@ -103,11 +99,9 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
   </tr>
 </tr>
 
-   
-  
   <!-- paginación -->
   <tr>
-    <td colspan="7" align="center">
+    <td colspan="14" align="center">
       <div class="pagination-wrap">
         <ul class="pagination">
           <li><a style='color:red;'>1</a></li></ul>

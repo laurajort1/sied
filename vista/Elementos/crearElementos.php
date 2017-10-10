@@ -30,120 +30,71 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 <?php echo include_once '../../Componentes/EncabezadoAdministrador.php' ?>
 <!-- fin del header -->
 
-
-
 <!-- contenido central -->
 <br>
 <!-- tabla -->
-<div class="container">
-  <table class="table table-bordered table-responsive"; align="center"; style="width: 200%; overflow: scroll;">
-
-    <!-- contenido superior -->
+<div>
+  <table class="table table-bordered table-responsive"; align="center"; style="width: 100%; overflow: scroll;">
+  <!-- contenido superior -->
+  <!-- contenido superior -->
   <tr>
      <!-- Serial -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Serial</b></td>   
-    <td  style=" width: 10%; color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="serial" value="";></td>
-  
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Serial</b></td> 
     <!-- Placa -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Placa</td>       
-    <td style="width: 10%; color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="placa" value="";></td>
-
-    <!-- Nombre -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri;"><b>Nombre</td>
-      <td style="width: 50%; color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="nombre" value="";></td>
-   </tr>
-  
-   <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Placa</td>
+    <!-- Nombre  -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Nombre</td>
+    <!-- Descripción -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Descripción</b></td>
+    <!-- Marca -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Marca</b></td>
+    <!-- Modelo -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Modelo</b></td>
     <!-- Valor -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Valor</b></td>
-    <td  style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="valor" value="";></td>
-    
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Valor</b></td>
     <!-- FechaInicial -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>FechaInicial</b></td>
-    <td style="color: #000; font-family: Calibri; font-weight: bold;">
-      <input  class="form-control" type="text" name="fecha" value="";></td>
-
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>FechaInicial</b></td>
     <!-- Estado -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Estado</b></td>
-    <td align="center" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <select class="form-control" style="text-transform: capitalize;">
-          <?php
-          foreach ($municipio as $municipio) {
-            if ($centros->getNombre()->getId()==$estado->getId()) {
-              echo '<option selected value="' . $estado->getId() . '">' . $estado->getNombre() . '</option>';
-            } else {
-              echo '<option value="' . $estado->getId(). '">' . $estado->getNombre(). '</option>';
-            }
-          }
-         ?>
-        </select>
-      </td>
-
-    </tr>
-   <tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Estado</b></td>
     <!-- Categoria -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Categoria</td>
-       <td align="center" style="color: #000; font-family: Calibri; font-weight: bold;">
-      <select class="form-control" style="text-transform: capitalize;">
-        <?php
-        foreach ($municipio as $municipio) {
-          if ($centros->getNombre()->getId()==$estado->getId()) {
-            echo '<option selected value="' . $estado->getId() . '">' . $estado->getNombre() . '</option>';
-          } else {
-            echo '<option value="' . $estado->getId(). '">' . $estado->getNombre(). '</option>';
-          }
-         }
-        ?>
-      </select>
-    </td>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Categoria</td>
     <!-- Ambiente -->
-    <td bgcolor="#eaeaea" align="left" style="font-family: calibri; width: 20%;"><b>Ambiente</b></td>
-    <td align="center" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <select class="form-control" style="text-transform: capitalize;">
-          <?php
-          foreach ($municipio as $municipio) {
-            if ($centros->getNombre()->getId()==$estado->getId()) {
-              echo '<option selected value="' . $estado->getId() . '">' . $estado->getNombre() . '</option>';
-            } else {
-              echo '<option value="' . $estado->getId(). '">' . $estado->getNombre(). '</option>';
-            }
-          }
-         ?>
-        </select>
-      </td>
-       <!-- botones -->  
-    
-      <td align="left">
-        <a href="Elementos.php" type="button" class="btn btn-success btn-block">Guardar</a></td>
-      <td align="left">
-        <a href="crearElementos.php" type="button" class="btn btn-danger btn-block">Cancelar</a></td>
-    </td>
-</tr>
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Ambiente</b></td>
+    <!-- Acciones -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;" colspan="2"><b>Acciones</b></td>
 
-  <!-- contenido texto-->
-  <tr>
-
-  <!-- paginación -->
-  <tr>
-    <td colspan="13" align="center">
-      <div class="pagination-wrap">
-        <ul class="pagination">
-          <li><a style='color:red;'>1</a></li></ul>
-      </div>
-    </td>
+  <tr>  
+    <!-- serial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="serial" value="";></td>
+    <!-- Placa -->         
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="placa" value="";></td>
+    <!-- Nombre -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Descripción -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>    
+    <!-- Marca -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Modelo -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td> 
+    <!-- Valor -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>    
+    <!-- FechaInicial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Estado -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>    
+    <!-- Categoria -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Ambiente -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- botones -->
+    <td align="left">
+      <a href="Elementos.php" type="button" class="btn btn-success btn-block">Guardar</a></td>
+    <td align="left">
+      <a href="crearElementos.php" type="button" class="btn btn-danger btn-block">Cancelar</a></td>
   </tr>
   </table>
   <!-- fin de la tabla -->
  </div>
-
-          
-        </div>
-      </div>
-    </div>
 <!-- fin del contenido central -->
   <footer>
     <?php echo include_once '../../Componentes/FooterAdministrador.php' ?>

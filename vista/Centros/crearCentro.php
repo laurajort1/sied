@@ -30,8 +30,6 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 <?php echo include_once '../../Componentes/EncabezadoAdministrador.php' ?>
 <!-- fin del header -->
 
-
-
 <!-- contenido central -->
 <br>
 <!-- tabla -->
@@ -92,16 +90,6 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
       <a href="Centros.php" type="button" class="btn btn-info btn-block">Guardar</a></td>
     <td align="center">
       <a href="crearCentro.php" type="button" class="btn btn-danger btn-block">Cancelar</a></td>
-    </td>
-  </tr>
-  
-  <!-- paginación -->
-  <tr>
-    <td colspan="7" align="center">
-      <div class="pagination-wrap">
-        <ul class="pagination">
-          <li><a style='color:red;'>1</a></li></ul>
-      </div>
     </td>
   </tr>
   </table>

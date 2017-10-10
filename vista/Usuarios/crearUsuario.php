@@ -34,105 +34,67 @@ $usuario = Usuario::getOneById($_SESSION["id"]);
 <br>
 <!-- tabla -->
 <div>
-  <table class="table table-bordered" style="width: 40%;" align="center">
-
-    <!-- contenido superior -->
+  <table class="table table-bordered table-responsive"; align="center"; style="width: 100%; overflow: scroll;">
+  <!-- contenido superior -->
+  <!-- contenido superior -->
   <tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 20%;">
-      <b>CEDULA</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="cedula" value="" style="text-align: center;">            
-    </td>
+     <!-- Serial -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Cedula</b></td> 
+    <!-- Placa -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Nombres</td>
+    <!-- Nombre  -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Apellidos</td>
+    <!-- Descripción -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Correo</b></td>
+    <!-- Marca -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Telefono</b></td>
+    <!-- Modelo -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>FechaInicial</b></td>
+    <!-- Valor -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Imagen</b></td>
+    <!-- FechaInicial -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>contraseña</b></td>
+    <!-- Estado -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Estado</b></td>
+    <!-- Categoria -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Tipo</td>
+    <!-- Ambiente -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;"><b>Centro</b></td>
+    <!-- Acciones -->
+    <td bgcolor="#eaeaea" align="center" style="font-family: calibri;" colspan="2"><b>Acciones</b></td>
+
+  <tr>  
+    <!-- cedula -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="serial" value="";></td>
+    <!-- Nombres -->         
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="placa" value="";></td>
+    <!-- Apellidos -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Correo -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>    
+    <!-- Telefono -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Fecha Incial -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td> 
+    <!-- Imagen -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>    
+    <!-- Contraseña -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Estado -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>    
+    <!-- Tipo -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- Centro -->
+    <td  style=" color: #000; font-family: Calibri; font-weight: bold;"><input  class="form-control" type="text" name="nombre" value="";></td>
+    <!-- botones -->
+    <td align="left">
+      <a href="Usuarios.php" type="button" class="btn btn-success btn-block">Guardar</a></td>
+    <td align="left">
+      <a href="crearUsuario.php" type="button" class="btn btn-danger btn-block">Cancelar</a></td>
   </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 30%;">
-      <b>NOMBRES</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="nombres" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 20%;">
-      <b>APELLIDOS</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="apellidos" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 20%;">
-      <b>CORREO</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="corre" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 20%;">
-      <b>TELEFONO</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="date" name="telefono" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 10%;">
-      <b>FECHA</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 10%;">
-      <b>IMAGEN</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="file" name="" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 10%;">
-      <b>CONTRASEÑA</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="password" name="" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 10%;">
-      <b>ESTADO</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 10%;">
-      <b>TIPO</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td bgcolor="#eaeaea" align="center" style="font-family: calibri; width: 10%;">
-      <b>CENTRO</b>
-    </td>
-    <td bgcolor="#eaeaea" style="color: #000; font-family: Calibri; font-weight: bold;">
-        <input class="form-control" type="text" name="" value="" style="text-align: center;">            
-    </td>
-  </tr>
-    <td colspan="2";></td>
-  </tr>
-</tr>       <!-- botones -->  
-  <div>
-      <td align="left">
-        <a href="Elementos.php" type="button" class="btn btn-success btn-block">Guardar</a></td>
-      <td align="left">
-        <a href="crearElementos.php" type="button" class="btn btn-danger btn-block">Cancelar</a></td>
-    </td>
-</div>
-</table>
+  </table>
   <!-- fin de la tabla -->
  </div>
-
-          
-        </div>
-      </div>
-    </div>
 <!-- fin del contenido central -->
   <footer>
     <?php echo include_once '../../Componentes/FooterAdministrador.php' ?>
